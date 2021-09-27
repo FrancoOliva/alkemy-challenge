@@ -1,30 +1,26 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { EquipoComponent } from './pages/equipo/equipo.component';
-import { HeroeComponent } from './pages/heroe/heroe.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 
 const routes: Routes = [
   {
-    path:'home',
+    path: '',
     component: HomeComponent,
     children: [
       {
-        path: 'mi-equipo',
+        path: 'equipo',
         component: EquipoComponent
       },
       {
-        path: 'heroe-detalles',
-        component: HeroeComponent
-      },
-      {
-        path: 'buscar-heroe',
+        path: 'buscar',
         component: BuscarComponent
-      },
+      }
+      ,
       {
         path: '**',
-        redirectTo: 'home'
+        redirectTo: 'equipo'
       }
     ]
   }
