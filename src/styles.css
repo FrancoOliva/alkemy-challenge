@@ -4,3 +4,17 @@ html, body {
     background-color: #ced4da;
 }
 
+
+.title-stroke {
+    font-family: fantasy;
+    color: #22d522f2;
+    -webkit-text-stroke: 2px black;
+}
+
+.p-stroke {
+    font-family: fantasy;
+    color: #22d522f2;
+    -webkit-text-stroke: 1.4px black;
+    font-size:medium;
+}
+
