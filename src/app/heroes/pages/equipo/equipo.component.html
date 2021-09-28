@@ -1,32 +1,16 @@
 <h1>Mi equipo</h1>
 <hr>
 
+<div class="m-2" *ngIf="mostrar">
 
-<div class="m-2">
-  <div class="card bg-dark text-white" *ngIf="mostrar" style="width: 21rem;">
+  <app-heroe-card [miEquipo]="miEquipo"></app-heroe-card>
 
-    <img [src]="miEquipo.image.url" class="card-img-top" alt="imagen heroe">
-  
-    <div class="card-img-overlay">
-        <h1 class="card-title text-center title-stroke"> {{ miEquipo.name }} </h1>
-  
-        <div class="mt-5">
-        <h3 class="card-text title-stroke">Estadísticas:</h3>
-        <p class="card-text p-stroke">Combate: {{miEquipo.powerstats.combat}} </p>
-        <p class="card-text p-stroke">Durabilidad: {{miEquipo.powerstats.durability}} </p>
-        <p class="card-text p-stroke">Inteligencia: {{miEquipo.powerstats.intelligence}} </p>
-        <p class="card-text p-stroke">Poder: {{miEquipo.powerstats.power}} </p>
-        <p class="card-text p-stroke">Velocidad: {{miEquipo.powerstats.speed}} </p>
-        <p class="card-text p-stroke">Fuerza: {{miEquipo.powerstats.strength}} </p>
-        </div>
-  
-        <div class="mt-4">
-            <a href="#" class="btn btn-primary me-2">Detalles</a>
-            <a href="#" class="btn btn-danger">Eliminar</a>
-        </div>
-    </div>
-  </div>
 </div>
+
+
+
+
+
 
 
 

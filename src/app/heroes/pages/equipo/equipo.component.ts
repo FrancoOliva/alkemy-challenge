@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HeroesService } from '../../services/heroes.service';
 import { Heroe } from '../../interfaces/heroe.interface';
 
+
+
+
 @Component({
   selector: 'app-equipo',
   templateUrl: './equipo.component.html',
@@ -9,20 +12,20 @@ import { Heroe } from '../../interfaces/heroe.interface';
 })
 export class EquipoComponent implements OnInit {
 
-  miEquipo!: Heroe;
+  miEquipo!: Heroe; 
   mostrar:boolean = false;
 
   constructor( private heroesService: HeroesService) { }
 
   ngOnInit(): void {
 
-    this.heroesService.getHeroe().subscribe( heroe => {
+     this.heroesService.getHeroe().subscribe( heroe => {
 
-      this.miEquipo = heroe;
+       this.miEquipo = heroe;
 
-      console.log('miEquipo ->' , this.miEquipo);
-      this.mostrar = true;
-    });
+       console.log('miEquipo ->' , this.miEquipo);
+       this.mostrar = true;
+     });
     
   }
 
