@@ -12,7 +12,7 @@ export class EquipoComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.heroesService.getHeroe().subscribe( heroe => console.log(heroe) );
+    this.heroesService.getHeroe().subscribe( h => console.log(h) );
     
   }
 
