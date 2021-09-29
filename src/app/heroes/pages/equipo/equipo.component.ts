@@ -19,13 +19,13 @@ export class EquipoComponent implements OnInit {
 
   ngOnInit(): void {
 
-    //  this.heroesService.getHeroe().subscribe( heroe => {
+    // this.heroesService.getHeroe().subscribe( heroe => {
 
-    //    this.miEquipo = heroe;
+      
 
-    //    console.log('miEquipo ->' , this.miEquipo);
-    //    this.mostrar = true;
-    //  });
+    //   console.log( heroe );
+      
+    // });
     
   }
 

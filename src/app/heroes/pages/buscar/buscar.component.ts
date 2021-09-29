@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Heroe } from '../../interfaces/heroe.interface';
+import { Result } from '../../interfaces/response.interface';
 import { HeroesService } from '../../services/heroes.service';
 
 @Component({
@@ -10,51 +11,69 @@ import { HeroesService } from '../../services/heroes.service';
 })
 export class BuscarComponent implements OnInit {
 
-  busqueda!: Heroe[];
+  busqueda!: Result[];
 
   buscarForm: FormGroup = this.fb.group({
     nombre: ['', Validators.required]
   });
 
+  mensajeError: string = '';
+  mostrarAlert: boolean = false;
+  cargando: boolean = false;
+
   constructor( private heroesService: HeroesService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+
+    
   }
 
   buscar(){
 
-    this.busqueda = [];
+     this.busqueda = [];
+     let nombre: string = '';
+
+     this.cargando = true;
     
-    if( this.buscarForm.invalid ){
-      console.log('Formulario invalido');
-      console.log(this.buscarForm);
-    } else {
+     if( this.buscarForm.invalid ){
+       
+       this.mensajeError = 'Completar todos los campos.'
+       this.mostrarAlert = true;
+       this.cargando = false;
+     } else {
+            
+      nombre = this.buscarForm.controls['nombre'].value;
 
-      console.log('Formulario válido', this.buscarForm.controls['nombre'].value);      
-      let nombre = this.buscarForm.controls['nombre'].value;
+      this.heroesService.buscarHeroe(nombre).subscribe( resultado => {
 
-      this.heroesService.buscarHeroe(nombre).subscribe( busqueda => {
 
-        //console.log('Busquda OK');
-        
-        
-        busqueda.results.forEach( r => {
-          //console.log(r.id)
+        if(resultado.response == 'success'){          
 
-          let idHeroe: string = r.id;
-
-          this.heroesService.getHeroe(idHeroe).subscribe( h =>{
-            this.busqueda.push(h);
+          resultado.results.forEach( r => { 
+            this.busqueda.push(r);
           });
 
-        });
+          this.cargando = false;
 
-        //console.log('Fin foreach', this.busqueda);
+        } else if(resultado.response == 'error'){          
 
+          if(resultado.error == 'character with given name not found'){
+      
+            this.mensajeError = 'No se encontraron héroes con ese nombre.';
+            this.mostrarAlert = true;
+            this.cargando = false;
+          }
+
+        }
       });
 
       
-    }
+     }
+  }
+
+  escribiendo(){
+    this.mensajeError = '';
+    this.mostrarAlert = false;
   }
 
 }
