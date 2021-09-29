@@ -1,0 +1,20 @@
+<div class="card bg-dark text-white">
+
+    <!-- Header -->
+    <div class="card-header text-center">
+      {{ heroe.name }}
+    </div>
+    <!--IMG-->
+    <img [src]="heroe.image.url" alt="imagen heroe">
+    
+    <!--FOOTER-->
+    <div class="card-footer">
+      <div class="float-start float-md-start float-lg-start">
+        <button type="button" class="btn btn-outline-success" (click)="agregar()">Agregar</button>
+      </div>
+      <div class="float-end float-md-end float-lg-end">
+        <button type="button" class="btn btn-outline-info" (click)="detalles()">Detalles</button>
+      </div>
+    </div>
+
+</div>

@@ -6,6 +6,8 @@ import { EquipoComponent } from './pages/equipo/equipo.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeroeCardComponent } from './components/heroe-card/heroe-card.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BusquedaCardComponent } from './components/busqueda-card/busqueda-card.component';
 
 
 @NgModule({
@@ -13,11 +15,14 @@ import { HeroeCardComponent } from './components/heroe-card/heroe-card.component
     HomeComponent,
     EquipoComponent,
     BuscarComponent,
-    HeroeCardComponent
+    HeroeCardComponent,
+    BusquedaCardComponent
   ],
   imports: [
     CommonModule,
-    HeroesRoutingModule
+    HeroesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class HeroesModule { }

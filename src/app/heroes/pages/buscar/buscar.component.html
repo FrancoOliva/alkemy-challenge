@@ -1,1 +1,26 @@
-<p>buscar works!</p>
+<h1>Buscar Héroe</h1>
+<hr>
+
+<div class="container">
+  <div>
+    <form autocomplete="off" [formGroup]="buscarForm" (ngSubmit)="buscar()">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" formControlName="nombre" placeholder="Ingresar nombre" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+      </div>
+    </form>
+  </div>
+  
+  <div class="row">
+    <div class="col-12 col-md-4 mb-2" *ngFor="let heroe of busqueda">
+      <app-busqueda-card [heroe]="heroe"></app-busqueda-card>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
