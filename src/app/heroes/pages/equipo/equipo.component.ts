@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Result } from '../../interfaces/response.interface';
 import { HeroesService } from '../../services/heroes.service';
-import { Heroe } from '../../interfaces/heroe.interface';
+
 
 
 
@@ -12,7 +13,7 @@ import { Heroe } from '../../interfaces/heroe.interface';
 })
 export class EquipoComponent implements OnInit {
 
-  miEquipo!: Heroe; 
+  miEquipo!: Result; 
   mostrar:boolean = false;
 
   constructor( private heroesService: HeroesService) { }

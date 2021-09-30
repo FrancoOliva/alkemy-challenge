@@ -7,12 +7,12 @@ const routes: Routes = [
   //   loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)
   // },
   {
-    path: 'home',
+    path: 'heroes',
     loadChildren: () => import('./heroes/heroes.module').then( m => m.HeroesModule)
   },
   {
     path: '**',
-    redirectTo: 'home'
+    redirectTo: 'heroes'
   }
 ];
 

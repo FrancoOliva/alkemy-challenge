@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { EquipoComponent } from './pages/equipo/equipo.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
+import { DetallesHeroeComponent } from './pages/detalles-heroe/detalles-heroe.component';
 
 const routes: Routes = [
   {
@@ -10,17 +11,20 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {
-        path: 'equipo',
+        path: 'mi-equipo',
         component: EquipoComponent
       },
       {
-        path: 'buscar',
+        path: 'buscar-heroe',
         component: BuscarComponent
-      }
-      ,
+      },
+      {
+        path: ':id',
+        component: DetallesHeroeComponent
+      },
       {
         path: '**',
-        redirectTo: 'equipo'
+        redirectTo: 'mi-equipo'
       }
     ]
   }

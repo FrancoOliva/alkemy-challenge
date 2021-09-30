@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Heroe } from '../../interfaces/heroe.interface';
+import { Router } from '@angular/router';
+
 import { Result } from '../../interfaces/response.interface';
 
 @Component({
@@ -11,7 +12,7 @@ export class BusquedaCardComponent implements OnInit {
 
   @Input() heroe!: Result;
 
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,8 +22,9 @@ export class BusquedaCardComponent implements OnInit {
     console.log(heroe);
   }
 
-  // detalles(name: string){
-  //   console.log('Mostrar detalles del héroe', name);
-  // }
+  detalles(heroe: Result){
+    
+    this.router.navigate(['/heroes/', heroe.id]);
+  }
 
 }

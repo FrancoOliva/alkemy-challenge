@@ -23,6 +23,7 @@ export interface Appearance {
     weight:    string[];
     eyeColor:  string;
     hairColor: string;
+
 }
 
 export interface Biography {

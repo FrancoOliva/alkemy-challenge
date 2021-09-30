@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Heroe } from '../../interfaces/heroe.interface';
+
 import { Result } from '../../interfaces/response.interface';
 import { HeroesService } from '../../services/heroes.service';
 
