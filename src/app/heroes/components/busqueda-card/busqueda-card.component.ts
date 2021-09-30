@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
 import { Result } from '../../interfaces/response.interface';
 
 @Component({
@@ -12,19 +10,19 @@ export class BusquedaCardComponent implements OnInit {
 
   @Input() heroe!: Result;
 
-  constructor( private router: Router) { }
+  equipo: Result[] = [];
+
+  constructor( ) { }
 
   ngOnInit(): void {
+    
   }
 
   agregar(heroe: Result){
     console.log('Agregar al equipo');
     console.log(heroe);
+    console.log(this.equipo.length);
   }
 
-  detalles(heroe: Result){
-    
-    this.router.navigate(['/heroes/', heroe.id]);
-  }
 
 }

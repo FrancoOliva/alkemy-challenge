@@ -21,8 +21,8 @@ export interface Appearance {
     race:      string;
     height:    string[];
     weight:    string[];
-    eyeColor:  string;
-    hairColor: string;
+    eye:  string;
+    hair: string;
 
 }
 

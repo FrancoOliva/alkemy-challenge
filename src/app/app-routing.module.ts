@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  // PENDIENTE BUSCAR FALLO PETICIÓN POST
   // {
   //   path: 'auth',
   //   loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)

@@ -34,7 +34,12 @@ export class DetallesHeroeComponent implements OnInit {
       this.cargando = false;
       this.mostrar = true;
 
-      console.log(this.detallesHeroe);
+      console.log(this.detallesHeroe.appearance.gender);
+      console.log(this.detallesHeroe.appearance.height);
+      console.log(this.detallesHeroe.appearance.race);
+      console.log(this.detallesHeroe.appearance.weight);
+      console.log(this.detallesHeroe.appearance.hair);
+      console.log(this.detallesHeroe.appearance.eye);
     });
 
 

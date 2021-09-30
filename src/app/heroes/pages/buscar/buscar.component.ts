@@ -76,4 +76,5 @@ export class BuscarComponent implements OnInit {
     this.mostrarAlert = false;
   }
 
+
 }
