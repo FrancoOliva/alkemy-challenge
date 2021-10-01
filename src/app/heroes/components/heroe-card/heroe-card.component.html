@@ -1,12 +1,64 @@
-<div class="card bg-dark text-white">
+<div class="row">
 
-    <!-- Header -->
+  <div class="col-12 col-md-4 mb-2" *ngFor="let heroe of miEquipo; let i = index;">
+
+    <div class="card bg-dark text-white border-success">
+
+      <!-- Header -->
+      <div class="card-header text-center title-stroke">
+        <h2>
+          {{ heroe.name }}
+        </h2>
+      </div>
+      <!--IMG-->
+      <img [src]="heroe.image.url" alt="imagen heroe">
+      <!--CARD BODY-->
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bg-dark p-stroke">Combate: {{heroe.powerstats.combat}} </li>
+              <li class="list-group-item bg-dark p-stroke">Durabilidad: {{heroe.powerstats.durability}}</li>
+              <li class="list-group-item bg-dark p-stroke">Inteligencia: {{heroe.powerstats.intelligence}}</li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bg-dark p-stroke">Poder: {{heroe.powerstats.power}}</li>
+              <li class="list-group-item bg-dark p-stroke">Velocidad: {{heroe.powerstats.speed}}</li>
+              <li class="list-group-item bg-dark p-stroke">Fuerza: {{heroe.powerstats.strength}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--FOOTER-->
+      <div class="card-footer">
+        <div class="float-start float-md-start float-lg-start">
+          <button type="button" class="btn btn-outline-info" (click)="detalles(heroe)">Detalles</button>
+        </div>
+        <div class="float-end float-md-end float-lg-end">
+          <button type="button" class="btn btn-outline-danger" (click)="eliminar(i)">Eliminar</button>
+        </div>
+      </div>
+  
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+<!-- <div class="card bg-dark text-white">
+
+    
     <div class="card-header text-center">
       {{ miEquipo.name }}
     </div>
-    <!--IMG-->
+    
     <img [src]="miEquipo.image.url" alt="imagen heroe">
-    <!--CARD BODY-->
+    
     <div class="card-body">
       <div class="row">
         <div class="col">
@@ -25,7 +77,7 @@
         </div>
       </div>
     </div>
-    <!--FOOTER-->
+    
     <div class="card-footer">
       <div class="float-start float-md-start float-lg-start">
         <button type="button" class="btn btn-outline-info" (click)="detalles()">Detalles</button>
@@ -35,4 +87,4 @@
       </div>
     </div>
 
-  </div>
+  </div> -->

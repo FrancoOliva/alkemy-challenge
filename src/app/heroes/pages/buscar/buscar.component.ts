@@ -76,5 +76,13 @@ export class BuscarComponent implements OnInit {
     this.mostrarAlert = false;
   }
 
+  mensajeCard(event: string){
+    this.mensajeError = event;
+  }
+
+  alertCard(event: boolean){
+    this.mostrarAlert = event;
+  }
+
 
 }

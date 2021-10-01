@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Result } from '../../interfaces/response.interface';
 
 @Component({
@@ -16,11 +16,22 @@ export class BusquedaCardComponent implements OnInit {
   buenos: number = 0;
   malos: number = 0;
 
+  @Output() alertError  : EventEmitter<boolean> = new EventEmitter<boolean>(); 
+  @Output() mensajeError: EventEmitter<string> = new EventEmitter<string>();
+
   constructor( ) { 
     
     if( localStorage.getItem('equipo') ){      
 
       this.equipo = JSON.parse(localStorage.getItem('equipo')!);
+
+      for(let i = 0; i < this.equipo.length; i++){
+        if( this.equipo[i].biography.alignment == "good"){
+          this.buenos++;
+        } else if( this.equipo[i].biography.alignment == "bad"){
+          this.malos++;
+        }
+      }
 
     } else {
       this.equipo = [];
@@ -47,7 +58,9 @@ export class BusquedaCardComponent implements OnInit {
           this.equipo.push(heroe);
 
         } else {
-          console.log('Solo se permiten 3 héroes buenos por equipo.');
+          
+          this.mensajeError.emit('Solo se permiten 3 héroes buenos por equipo.');
+          this.alertError.emit(true);
         }
 
         
@@ -59,13 +72,18 @@ export class BusquedaCardComponent implements OnInit {
           this.equipo.push(heroe);
     
         } else {
-          console.log('Solo se permiten 3 héroes malos por equipo.');
+          
+          this.mensajeError.emit('Solo se permiten 3 héroes malos por equipo.');
+          this.alertError.emit(true);
+
+          
         }  
         
       }        
         
     } else {
-      console.log('Solo se permiten 6 héroes por equipo.');
+      this.mensajeError.emit('Solo se permiten 6 héroes por equipo.');
+      this.alertError.emit(true);
     }
 
 

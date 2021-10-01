@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Result } from '../../interfaces/response.interface';
+
 
 
 @Component({
@@ -9,19 +11,27 @@ import { Result } from '../../interfaces/response.interface';
 })
 export class HeroeCardComponent implements OnInit {
 
-  @Input() miEquipo!: Result;
+  @Input() miEquipo!: Result[];
 
-  constructor() { }
+  constructor( private router: Router) {
+    
+
+  }
 
   ngOnInit(): void {
   }
 
-  detalles() {
-    console.log('Mostrar detalles del heroe');
+  detalles(heroe: Result) {
+    
+    this.router.navigate(['/heroes/', heroe.id]);
+
   }
 
-  eliminar(){
-    console.log('Eliminar heroe del equipo');
+  eliminar(index: number){
+    
+    this.miEquipo.splice(index,1);
+
+    localStorage.setItem('equipo', JSON.stringify(this.miEquipo) );
   }
 
 }

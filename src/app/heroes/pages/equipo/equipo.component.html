@@ -1,10 +1,32 @@
-<h1>Mi equipo</h1>
-<hr>
 
-<div *ngIf="mostrar">
 
-  <app-heroe-card [miEquipo]="miEquipo"></app-heroe-card>
+<div class="container">
+  
+  <div *ngIf="mostrar">
+    <h1 class="title-stroke">Powerstats</h1>
+    <hr>
+    <div class="col-12 col-md-12 mb-2">
+      
+    </div>
 
+    <h1 class="title-stroke">Mi equipo</h1>
+    <hr>
+    <div class="alert alert-secondary" role="alert" *ngIf="miEquipo.length == 0">
+      Tú equipo no tiene héroes.
+    </div>
+
+    <div class="row">
+    
+  
+      <div class="col-12 col-md-12 mb-2">
+        <app-heroe-card [miEquipo]="miEquipo"></app-heroe-card>
+      </div>
+    
+    </div>
+  
+    
+  
+  </div>
 </div>
 
 

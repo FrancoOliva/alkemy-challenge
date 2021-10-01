@@ -1,7 +1,7 @@
 
 
 <div class="container">
-  <h1>Buscar Héroe</h1>
+  <h1 class="title-stroke">Buscar Héroe</h1>
   <hr>
   <div>
     <form autocomplete="off" [formGroup]="buscarForm" (ngSubmit)="buscar()">
@@ -20,7 +20,7 @@
   
   <div class="row">
     <div class="col-12 col-md-12 mb-2" >
-      <app-busqueda-card [resultadoBusqueda]="busqueda"></app-busqueda-card>
+      <app-busqueda-card [resultadoBusqueda]="busqueda" (mensajeError)="mensajeCard($event)" (alertError)="alertCard($event)"></app-busqueda-card>
     </div>
   </div>
 </div>

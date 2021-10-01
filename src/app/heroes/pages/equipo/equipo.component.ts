@@ -13,10 +13,18 @@ import { HeroesService } from '../../services/heroes.service';
 })
 export class EquipoComponent implements OnInit {
 
-  miEquipo!: Result; 
-  mostrar:boolean = false;
+  miEquipo!: Result[]; 
+  mostrar:boolean = true;
 
-  constructor( private heroesService: HeroesService) { }
+  constructor( private heroesService: HeroesService) {
+
+    if( localStorage.getItem('equipo') ){
+      this.miEquipo = JSON.parse( localStorage.getItem('equipo')! )
+    } else {
+      this.miEquipo = [];
+    }
+    
+   }
 
   ngOnInit(): void {
 

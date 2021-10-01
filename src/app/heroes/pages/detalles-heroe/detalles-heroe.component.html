@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Detalles</h1>
+    <h1 class="title-stroke">Detalles</h1>
     <hr>
     <div class="spinner-border text-success" role="status" *ngIf="cargando">
         <span class="visually-hidden">Loading...</span>
@@ -12,11 +12,11 @@
         </div>
 
         <div class="col-12 col-md-6 mb-2">
-            <div class="card bg-dark text-white">
+            <div class="card bg-dark text-white border-success">
                 <div class="card-header">
-                    <h3 class="card-title text-center"> Información </h3>
+                    <h3 class="card-title text-center title-stroke"> Información </h3>
                 </div>
-                <div class="card-body">
+                <div class="card-body p-stroke">
                     <h5> Nombre </h5>
                     <p> {{detallesHeroe.name}} </p>
                     <h5> Alias </h5>
