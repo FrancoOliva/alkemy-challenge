@@ -6,14 +6,14 @@ import { HttpClientModule } from '@angular/common/http'
 
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent   
+       
     
   ],
   imports: [

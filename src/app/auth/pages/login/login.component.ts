@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   ingresar(){
     
-    console.log('pendiente petición post');
+    this.authService.login().subscribe( console.log );
 
   }
 

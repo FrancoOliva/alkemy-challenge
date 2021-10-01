@@ -6,6 +6,10 @@ html, body {
     color: white;
 }
 
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(0 0 0);
+}
+
 
 .title-stroke {
     font-family: fantasy;

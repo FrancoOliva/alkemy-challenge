@@ -4,6 +4,9 @@
   
   <div *ngIf="mostrar">
     <h1 class="title-stroke">Powerstats</h1>
+    <div>
+      <p *ngFor="let stats of acumulativo">{{ stats.tipo }}: {{stats.valor}} </p>
+    </div>
     <hr>
     <div class="col-12 col-md-12 mb-2">
       

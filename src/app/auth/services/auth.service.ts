@@ -1,23 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  authUrl: string = 'http://challenge-react.alkemy.org/';
+  authUrl: string = 'http://challenge-react.alkemy.org';
 
   constructor( private http: HttpClient) { }
 
 
 
 
-  // ERRORES AL INTENTAR PETICIÓN POST
-  // PENDIENTE BUSCAR FALLO
+
+  // ERROR 401 UNAUTHORIZED
+  // VER SI ESTOY HACIENDO MAL EL POST - COMPROBAR DATOS
+  
   login(){
 
-    
+    return this.http.post( 'http://challenge-react.alkemy.org' , { email:'challenge@alkemy.org', password: 'angular' } );
+
   }
 }
