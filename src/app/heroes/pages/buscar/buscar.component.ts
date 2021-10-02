@@ -85,10 +85,12 @@ export class BuscarComponent implements OnInit {
 
   mensajeCard(event: string){
     this.mensajeError = event;
+    this.mensajeSuccess = '';
   }
 
   alertCard(event: boolean){
     this.mostrarAlert = event;
+    this.mostrarSuccess = false;
   }
 
   mostrarAlertSuccess(event: boolean){
