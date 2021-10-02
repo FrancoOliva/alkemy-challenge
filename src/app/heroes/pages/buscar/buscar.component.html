@@ -15,12 +15,20 @@
       <div class="alert alert-danger" role="alert" *ngIf="mostrarAlert">
         {{ mensajeError }}
       </div>
+      <div class="alert alert-success" role="alert" *ngIf="mostrarSuccess">
+        {{ mensajeSuccess }}
+      </div>
     </form>
   </div>
   
   <div class="row">
     <div class="col-12 col-md-12 mb-2" >
-      <app-busqueda-card [resultadoBusqueda]="busqueda" (mensajeError)="mensajeCard($event)" (alertError)="alertCard($event)"></app-busqueda-card>
+      <app-busqueda-card 
+      [resultadoBusqueda]="busqueda" 
+      (mensajeError)="mensajeCard($event)" 
+      (alertError)="alertCard($event)"
+      (mensajeSuccess)="mostrarMensajeSuccess($event)"
+      (mostrarSuccess)="mostrarAlertSuccess($event)"></app-busqueda-card>
     </div>
   </div>
 </div>

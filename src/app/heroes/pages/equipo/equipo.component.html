@@ -7,16 +7,12 @@
     <h1 class="title-stroke">Powerstats</h1>
     <hr>
     
-    <div class="col-12 col-md-12 mb-2">
+    <div class="col-12 col-md-12 mb-2" *ngIf="miEquipo.length > 0">
 
-      <div class="card bg-dark border-success">
-        <div class="card-body">
-          <h4 class="title-stroke2">Equipo tipo: {{ equipoTipo }} </h4>
-          <p *ngFor="let stats of acumulativo" class="p-stroke">{{ stats.tipo }}: {{stats.valor}} </p>
-        </div>
-      </div>
+      <app-powerstats [equipoPowerstats]="miEquipo"></app-powerstats>
       
     </div>
+
     <hr>
     <h1 class="title-stroke">Mi equipo</h1>
     <hr>
@@ -28,7 +24,7 @@
     
   
       <div class="col-12 col-md-12 mb-2">
-        <app-heroe-card [miEquipo]="miEquipo"></app-heroe-card>
+        <app-heroe-card [miEquipo]="miEquipo" (heroeEliminado)="heroeEliminado($event)"></app-heroe-card>
       </div>
     
     </div>

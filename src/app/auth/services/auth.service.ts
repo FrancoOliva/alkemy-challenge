@@ -15,12 +15,16 @@ export class AuthService {
 
 
 
-  // ERROR 401 UNAUTHORIZED
-  // VER SI ESTOY HACIENDO MAL EL POST - COMPROBAR DATOS
+  // ERROR 401 UNAUTHORIZED 
+  // VER QUÉ ESTOY HACIENDO MAL - COMPROBAR DATOS
   
   login(){
 
-    return this.http.post( 'http://challenge-react.alkemy.org' , { email:'challenge@alkemy.org', password: 'angular' } );
+    let body: any = {
+      email: 'challenge@alkemy.org', password: 'angular'
+    }
+
+    return this.http.get( 'http://challenge-react.alkemy.org' , body    );
 
   }
 }

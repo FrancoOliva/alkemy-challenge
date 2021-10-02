@@ -21,6 +21,11 @@ export class BuscarComponent implements OnInit {
   mostrarAlert: boolean = false;
   cargando: boolean = false;
 
+  mostrarSuccess: boolean = false;
+  mensajeSuccess: string  = '';
+
+  
+
   constructor( private heroesService: HeroesService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -74,6 +79,8 @@ export class BuscarComponent implements OnInit {
   escribiendo(){
     this.mensajeError = '';
     this.mostrarAlert = false;
+    this.mensajeSuccess = '';
+    this.mostrarSuccess = false;
   }
 
   mensajeCard(event: string){
@@ -82,6 +89,13 @@ export class BuscarComponent implements OnInit {
 
   alertCard(event: boolean){
     this.mostrarAlert = event;
+  }
+
+  mostrarAlertSuccess(event: boolean){
+    this.mostrarSuccess = event;
+  }
+  mostrarMensajeSuccess(event: string){
+    this.mensajeSuccess = event;
   }
 
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Result } from '../../interfaces/response.interface';
 
@@ -12,6 +12,8 @@ import { Result } from '../../interfaces/response.interface';
 export class HeroeCardComponent implements OnInit {
 
   @Input() miEquipo!: Result[];
+
+  @Output() heroeEliminado: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor( private router: Router) {
     
@@ -32,6 +34,8 @@ export class HeroeCardComponent implements OnInit {
     this.miEquipo.splice(index,1);
 
     localStorage.setItem('equipo', JSON.stringify(this.miEquipo) );
+
+    this.heroeEliminado.emit(true);
   }
 
 }

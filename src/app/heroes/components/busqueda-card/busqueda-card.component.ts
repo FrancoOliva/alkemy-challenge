@@ -19,6 +19,11 @@ export class BusquedaCardComponent implements OnInit {
   @Output() alertError  : EventEmitter<boolean> = new EventEmitter<boolean>(); 
   @Output() mensajeError: EventEmitter<string> = new EventEmitter<string>();
 
+  @Output() mostrarSuccess: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() mensajeSuccess: EventEmitter<string> = new EventEmitter<string>();
+
+  
+
   constructor( ) { 
     
     if( localStorage.getItem('equipo') ){      
@@ -57,6 +62,9 @@ export class BusquedaCardComponent implements OnInit {
           this.buenos++;
           this.equipo.push(heroe);
 
+          this.mostrarSuccess.emit(true);
+          this.mensajeSuccess.emit('Agregaste un héroe bueno a tu equipo.');
+
         } else {
           
           this.mensajeError.emit('Solo se permiten 3 héroes buenos por equipo.');
@@ -70,6 +78,9 @@ export class BusquedaCardComponent implements OnInit {
 
           this.malos++;
           this.equipo.push(heroe);
+
+          this.mostrarSuccess.emit(true);
+          this.mensajeSuccess.emit('Agregaste un héroe malo a tu equipo.');
     
         } else {
           
@@ -84,6 +95,7 @@ export class BusquedaCardComponent implements OnInit {
     } else {
       this.mensajeError.emit('Solo se permiten 6 héroes por equipo.');
       this.alertError.emit(true);
+      
     }
 
 

@@ -1,0 +1,11 @@
+<div class="card bg-dark border-success">
+    <div class="card-body">
+      <h4 class="title-stroke2 mb-2">Equipo tipo: {{ equipoTipo }} </h4>
+      <div class="mb-2">
+        <p *ngFor="let stats of acumulativo" class="p-stroke">{{ stats.tipo }}: {{stats.valor }} </p>
+      </div>
+      <div class="mb-2">
+        <p *ngFor="let prom of promedio" class="p-stroke">{{ prom.tipo }}: {{prom.valor | number:'2.2-2'}} </p>
+      </div>
+    </div>
+  </div>
