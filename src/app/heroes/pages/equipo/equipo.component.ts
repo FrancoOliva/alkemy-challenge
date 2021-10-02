@@ -18,6 +18,8 @@ export class EquipoComponent implements OnInit {
   miEquipo!: Result[]; 
   mostrar:boolean = true;
 
+  equipoTipo: string = 'Desconocido';
+
   combat : number = 0;
   power : number = 0;
   durability : number = 0;
@@ -50,13 +52,7 @@ export class EquipoComponent implements OnInit {
       tipo: 'Fuerza',
       valor: 0
     }
-  ];
-
-
-
-  
-
-  
+  ];  
 
   constructor( private heroesService: HeroesService) {
 
@@ -98,6 +94,20 @@ export class EquipoComponent implements OnInit {
           valor: this.strength
         }
       ];
+
+      this.acumulativo.sort( ( a:estadistica , b:estadistica ) => {
+
+        if( a.valor < b.valor ){
+          return 1;
+        } else if (a.valor > b.valor ){
+          return -1;
+        } else {
+          return 0;
+        }
+
+      });
+
+      this.equipoTipo = this.acumulativo[0].tipo;
 
 
     } else {
