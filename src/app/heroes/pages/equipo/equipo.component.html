@@ -3,11 +3,12 @@
 <div class="container">
   
   <div *ngIf="mostrar">
-    <hr>
-    <h1 class="title-stroke">Powerstats</h1>
-    <hr>
     
     <div class="col-12 col-md-12 mb-2" *ngIf="miEquipo.length > 0">
+
+      <hr>
+      <h1 class="title-stroke">Powerstats</h1>
+      <hr>
 
       <app-powerstats [equipoPowerstats]="miEquipo"></app-powerstats>
       
