@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup = this.fb.group({
-    email: ['franco@ejemplo.com', [Validators.required, Validators.email]],
-    password: ['12345678', [Validators.required, Validators.minLength(8)]]
+    email: ['challenge@alkemy.org', Validators.required],
+    password: ['react', Validators.required ]
   });
 
   constructor( private authService: AuthService, private fb: FormBuilder, private router: Router ) { }
@@ -24,21 +24,16 @@ export class LoginComponent implements OnInit {
 
   ingresar(){
 
-    let email = this.loginForm.controls['email'].value;
-    let password = this.loginForm.controls['password'].value;
-    
-    if( email == 'franco@ejemplo.com' && password == "12345678"){
-
+    if( this.loginForm.valid ){
+      
+      this.authService.login(this.loginForm).subscribe( console.log );
 
       // Esto debería ir dentro de la petición http
       // si el usuario es correcto
-      this.router.navigate(['/heroes/']);
+      //this.router.navigate(['/heroes/']);
 
-    } else {
-      console.log('El usuario ingresado no existe.');
-
-     
     }
+
 
   }
 

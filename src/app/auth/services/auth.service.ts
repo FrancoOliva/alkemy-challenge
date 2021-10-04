@@ -19,11 +19,18 @@ export class AuthService {
   // ERROR 401 UNAUTHORIZED 
   // VER QUÉ ESTOY HACIENDO MAL - COMPROBAR DATOS
   
-  login(form: FormGroup){
+  login(formLogin: FormGroup){
 
+    let usuario: any = {
+      email: formLogin.controls['email'].value,
+      password: formLogin.controls['password'].value
+    }
     
-
-   // return this.http.get( 'http://challenge-react.alkemy.org' );
+    
+    // FUNCIONA - Estaba mal la clave del PDF
+    // usuario: 'challenge@alkemy.org'
+    // password: 'react'
+   return this.http.post( 'http://challenge-react.alkemy.org', usuario );
 
   }
 }
