@@ -13,11 +13,23 @@
                 >
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" formControlName="email">
+                    <input type="email" class="form-control" id="email" formControlName="email" (input)="escribiendo()">
+                    <div class="alert alert-danger mt-1" role="alert" *ngIf="alertEmail">
+                        {{ mensajeError }}
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" formControlName="password">
+                    <input type="password" class="form-control" id="password" formControlName="password" (input)="escribiendo()">
+                    <div class="alert alert-danger mt-1" role="alert" *ngIf="alertPassword">
+                        {{ mensajeError }}
+                    </div>
+                    <div class="alert alert-danger mt-1" role="alert" *ngIf="alertApi">
+                        {{ errorApi }}
+                    </div>
+                    <div class="spinner-border text-success mt-1" role="status" *ngIf="cargando">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
                 </div>
                 <div class="mb-3 float-end float-md-end float-lg-end">
                     <button type="submit" class="btn btn-success">Ingresar</button>

@@ -15,30 +15,42 @@ export class LoginComponent implements OnInit {
 
   errorApi: string = '';
 
+  mensajeError: string = '';
+
+  alertEmail: boolean = false;
+  alertPassword: boolean = false;
+  alertApi: boolean = false;
+
+  cargando: boolean = false;
+
   loginForm: FormGroup = this.fb.group({
-    email: ['challenge@alkemy.org', Validators.required],
-    password: ['react', Validators.required ]
+    email: ['', Validators.required],
+    password: ['', Validators.required ]
   });
 
   constructor( private authService: AuthService, private fb: FormBuilder, private router: Router ) { }
 
   ngOnInit(): void {
 
-    console.log(this.loginForm);
+    
 
   }
 
   ingresar(){
 
-    if( this.loginForm.valid ){
+    this.escribiendo();
+
+    if( this.loginForm.status == "VALID" ){
+
+      this.cargando = true;
       
       this.authService.login(this.loginForm).toPromise().then( resp =>{
 
+
         if( resp.token ){
-          //console.log(resp.token);
+          
           this.router.navigate(['/heroes/']);
         }
-
 
       }).catch( HttpErrorResponse => {
 
@@ -47,29 +59,40 @@ export class LoginComponent implements OnInit {
 
         this.errorApi = HttpErrorResponse.error.error;
 
-        console.log('Error: ', this.errorApi);
+        this.mensajeError = this.errorApi;
+        this.alertApi = true;
+
+        this.cargando = false;
         
       });
 
-      
+    } 
 
-      
+    if( this.loginForm.status == "INVALID" ){
 
-    } else if( this.loginForm.invalid && this.loginForm.touched ) {
+      let errorEmail = this.loginForm.controls['email'].errors;
+      let errorPassword = this.loginForm.controls['password'].errors;
 
-      if( this.loginForm.controls['email'].errors ){
-        console.log('COMPLETAR CAMPO EMAIL');
-      } else if( this.loginForm.controls['password'].errors ){
-        console.log('Completar campo password');
+      if( errorEmail && errorPassword ){
+        this.mensajeError = 'Los campos email y password deben estar completos.'
+        this.alertPassword = true;
+      } else if( errorEmail ){
+        this.mensajeError = 'Ingrese un email.'
+        this.alertEmail = true;
+      } else {
+        this.mensajeError = 'Ingrese un password.'
+        this.alertPassword = true;
       }
-    } else {
-      console.log('Error: Campos incompletos.');
     }
-
     
-
      
 
+  }
+
+  escribiendo(){
+    this.alertEmail = false;
+    this.alertPassword = false;
+    this.alertApi = false;
   }
 
 }
