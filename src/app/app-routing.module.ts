@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AutenticacionGuard } from './auth/guards/autenticacion.guard';
 
 const routes: Routes = [
   // PENDIENTE
@@ -12,7 +13,9 @@ const routes: Routes = [
   },
   {
     path: 'heroes',
-    loadChildren: () => import('./heroes/heroes.module').then( m => m.HeroesModule)
+    loadChildren: () => import('./heroes/heroes.module').then( m => m.HeroesModule),
+    canLoad: [ AutenticacionGuard ],
+    canActivate: [ AutenticacionGuard ]
   },
   {
     path: '**',

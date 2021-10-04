@@ -1,29 +1,39 @@
-<h1>Login</h1>
-<hr>
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-md-4">
+            <div class="card bg-dark border-success">
+                <form 
+                autocomplete="off"
+                (ngSubmit)="ingresar()"
+                [formGroup]="loginForm"
+                class="p-2"
+                >
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password">
+                </div>
+                <div class="mb-3 float-end float-md-end float-lg-end">
+                    <button type="submit" class="btn btn-success">Ingresar</button>
+                </div>
+                </form>
+            </div>
+        </div>
 
 
-
-<div class="container">
+    </div>
     
-<div class="card bg-dark border-success">
-    <form 
-    autocomplete="off"
-    (ngSubmit)="ingresar()"
-    [formGroup]="loginForm"
-    class="p-2"
-    >
-    <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" formControlName="email">
-    </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" formControlName="password">
-    </div>
-    <div class="mb-3">
-        <button type="submit" class="btn btn-success">Ingresar</button>
-    </div>
-    </form>
+    
 </div>
 
-</div>
+
+
+
+
+
