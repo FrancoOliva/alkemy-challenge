@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 
 @Injectable({
@@ -18,13 +19,11 @@ export class AuthService {
   // ERROR 401 UNAUTHORIZED 
   // VER QUÉ ESTOY HACIENDO MAL - COMPROBAR DATOS
   
-  login(){
+  login(form: FormGroup){
 
-    let body: any = {
-      email: 'challenge@alkemy.org', password: 'angular'
-    }
+    
 
-    return this.http.get( 'http://challenge-react.alkemy.org' , body    );
+   // return this.http.get( 'http://challenge-react.alkemy.org' );
 
   }
 }
