@@ -1,10 +1,12 @@
+<div id="login">
+    
+    <div class="container">
 
-<div class="container mt-5">
+        <div class="row justify-content-center">
+        
+        <div class="col-12 col-md-5">
 
-    <div class="row justify-content-center">
-
-        <div class="col-12 col-md-4">
-            <div class="card bg-dark border-success">
+            <div class="card bg-dark border-success mt-5">
                 <form 
                 autocomplete="off"
                 (ngSubmit)="ingresar()"
@@ -27,7 +29,7 @@
                     <div class="alert alert-danger mt-1" role="alert" *ngIf="alertApi">
                         {{ errorApi }}
                     </div>
-                    <div class="spinner-border text-success mt-1" role="status" *ngIf="cargando">
+                    <div class="spinner-border text-success mt-2" role="status" *ngIf="cargando">
                         <span class="visually-hidden">Loading...</span>
                       </div>
                 </div>
@@ -36,12 +38,16 @@
                 </div>
                 </form>
             </div>
+            
         </div>
 
+        
 
+
+        </div> 
+    
+    
     </div>
-    
-    
 </div>
 
 

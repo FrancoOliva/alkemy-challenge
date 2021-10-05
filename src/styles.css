@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body {
+    
     background-color: #ced4da;
     background-color: #212529;
     color: white;
+    
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -31,4 +33,7 @@ html, body {
     color: #d52254f2;
     -webkit-text-stroke: 2px black;
 }
+
+
+
 

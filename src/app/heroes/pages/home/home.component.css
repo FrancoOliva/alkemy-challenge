@@ -1,0 +1,13 @@
+a {
+    font-family: fantasy;
+    /* color: #1baa1b; */
+    -webkit-text-stroke: 1px black;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(27 170 27);
+}
+
+.navbar-light .navbar-brand {
+    color: rgb(27 170 27);
+}
